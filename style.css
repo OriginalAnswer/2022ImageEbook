@@ -10,7 +10,8 @@
 .screen {
   width: 100vw;
   height: 100vh;
-  display: block;
+  display: grid;
+  grid-template-rows: auto 50px;
   background-color: #323232;
 }
 
@@ -19,22 +20,27 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-
-  height: 93vh;
+  height: 100%;
+  /* bottom: 50px; */
+  /* padding: 25px 0; */
 }
 
 .screen .controls {
-  height: 7vh;
+  height: 50px;
+  width: 100vw;
   bottom: 0;
   color: #fff;
   background-color: #000;
   display: flex;
+  /* position: fixed;
+  bottom: 0; */
   justify-content: center;
   align-items: center;
 }
 .screen .controls input {
-  height: 55%;
-  width: 5rem;
+  height: 45%;
+  margin-top: 4px;
+  width: 2.5rem;
   opacity: 0.8;
   border-radius: 9px;
 }
@@ -42,4 +48,11 @@
 .screen .controls span {
   font-size: 1.2rem;
   padding: 0 0.5rem;
+}
+.controls span:nth-child(6) {
+  padding-left: 0;
+}
+
+.icons {
+  padding: 0 1rem;
 }

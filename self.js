@@ -1,2 +1,4 @@
-const book = document.querySelector('book');
-
+const pgNum = document.querySelector('#page-number');
+function savePage {
+    
+}
