@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-color: none;
+  outline: none;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background-color: #323232;
+}
+
+.screen .book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+
+  height: 93vh;
+}
+
+.screen .controls {
+  height: 7vh;
+  bottom: 0;
+  color: #fff;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.screen .controls input {
+  height: 55%;
+  width: 5rem;
+  opacity: 0.8;
+  border-radius: 9px;
+}
+
+.screen .controls span {
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+}
