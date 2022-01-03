@@ -11,9 +11,8 @@ function savePage() {
     localStorage.setItem(PAGE_KEY, pageNum);
 }
 function loadPage(p) {
-    pages.appendChild(div);
-
-
+    const div = document.createElement("div");
+    div.className = 'page';
 }
 
 // console.log(savedPage);
