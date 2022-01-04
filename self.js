@@ -19,6 +19,6 @@ function loadPage() {
 if(savedPage === null){
     formPage.addEventListener("submit", savePage);
 } else {
-    loadPage();
+    // loadPage();
 }
 
