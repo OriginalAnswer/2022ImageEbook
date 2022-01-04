@@ -10,9 +10,8 @@ function savePage() {
     const pageNum = inputPage.value;
     localStorage.setItem(PAGE_KEY, pageNum);
 }
-function loadPage(p) {
-    const div = document.createElement("div");
-    div.className = 'page';
+function loadPage() {
+    
 }
 
 // console.log(savedPage);
@@ -20,5 +19,6 @@ function loadPage(p) {
 if(savedPage === null){
     formPage.addEventListener("submit", savePage);
 } else {
-    loadPage(savedPage);
+    loadPage();
 }
+

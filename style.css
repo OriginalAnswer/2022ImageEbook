@@ -38,12 +38,12 @@ input[type="number"]::-webkit-inner-spin-button {
 .pages {
   background-color: #fff;
   position: relative;
-  width: 700px;
+  width: 600px;
 }
 .pages::before {
   content: "";
   display: block;
-  padding-top: 120%;
+  padding-top: 110%;
 }
 .page {
   position: absolute;
