@@ -11,7 +11,7 @@ function savePage() {
     localStorage.setItem(PAGE_KEY, pageNum);
 }
 function loadPage() {
-    
+    localStorage.getItem(PAGE_KEY, pageNum);
 }
 
 // console.log(savedPage);

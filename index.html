@@ -12,8 +12,8 @@
     <div class="screen">
         <div class="viewport">
             <div class="pages">
-                <!-- <div class="page">
-                </div> -->
+                <div class="page">
+                </div>
             </div>
         </div>
         
@@ -22,12 +22,13 @@
             <i class="icons fas fa-angle-left"></i>
             <label for="page-number"><span>PAGE : </span></label> 
             <form id="page-number__form">
-               <input 
-                type="number" 
-                size="3" 
-                placeholder="1" 
-                id="page-number">
-               <input type="submit" class="hidden">
+                <input 
+                    type="number" 
+                    size="400" 
+                    maxlength="3"
+                    placeholder="1" 
+                    id="page-number"/>
+                <input type="submit" class="hidden"/>
             </form>
             <span> | </span>
             <span id="number-pages">400</span>
