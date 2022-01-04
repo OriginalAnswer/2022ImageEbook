@@ -6,28 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 </head>
 <body>
     <div class="screen">
         <div class="viewport">
-            <div class="pages">
-                <div class="page">
-                </div>
+            <div class="pages" id="pages">
+                <!-- <div class="page">
+                </div> -->
             </div>
         </div>
         
         <div class="controls">
             <i class="icons fas fa-angle-double-left"></i>
             <i class="icons fas fa-angle-left"></i>
-            <label for="page-number"><span>PAGE : </span></label> 
-            <form id="page-number__form">
+            <label for="pageForm__input"><span>PAGE : </span></label> 
+            <form id="pageForm">
                 <input 
                     type="number" 
-                    size="400" 
-                    maxlength="3"
+                    min="1"
+                    max="400"
                     placeholder="1" 
-                    id="page-number"/>
+                    id="pageForm__input"/>
                 <input type="submit" class="hidden"/>
             </form>
             <span> | </span>
@@ -36,8 +36,22 @@
             <i class="icons fas fa-angle-double-right"></i>
         </div>
     </div>
-    
-    <script src="self.js"></script>
+
+    <!-- <script type="text/javascript">
+        const ps = document.getElementById('#pages');
+        const dv = document.createElement('div');
+        dv.className = 'page';
+        
+        function setPage(){
+            ps.append(`${dv}`);
+        }
+        setPage();
+    </script> -->
+
+
+
+    <script src="search.js"></script>
+    <!-- icon -->
     <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
 </body>
 </html>
