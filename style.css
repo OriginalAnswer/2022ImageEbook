@@ -34,12 +34,12 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .pages {
-  background-color: #fff;
+  background-color: red;
   position: relative;
-  width: 600px;
+  width: 470px;
 }
 .pages::before {
-  padding-top: 105%;
+  padding-top: 610px;
   content: "";
   display: block;
 }

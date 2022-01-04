@@ -7,25 +7,33 @@ const savedPage = localStorage.getItem(PAGE_KEY);
 
 // ----------------------------------------------------
 
-function setPageTag() {
-    const page = document.createElement("div");
-    document.body.appendChild(page);
-    page.classList.add('page');
 
+
+// 로컬스토리지 page value=1 저장
+function firstPage() {
+    localStorage.setItem(PAGE_KEY, 1);
 }
 
+//서치 인풋 이벤트
 function savePage() {
-    localStorage.clear()
     const pageNum = pageForm__input.value;
+//서치 인풋 값
+    localStorage.clear()
+//로컬스토리지 value 지우기
     localStorage.setItem(PAGE_KEY, pageNum);
-    setPageTag();
+//로컬 스토리지에 서치 인풋 값 입력
 }
-// --------------------------------------------------
-pageForm.addEventListener("submit", savePage);
-// ----------------------------------------------------
 
-// if (savedPage === null) {
-//     pageForm.addEventListener("submit", savePage);
-// } else {
-// }
+
+pageForm.addEventListener("submit", savePage);
+
+
+if (savedPage === null) {
+    firstPage();
+} else {
+    makePage();
+}
+
+
+
 console.log(savedPage);
