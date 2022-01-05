@@ -6,9 +6,6 @@
   border-color: none;
   outline: none;
 }
-label {
-  /* font-size: 0px; */
-}
 
 .hidden {
   display: none;
@@ -35,19 +32,6 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 100%;
   width: 100vw;
 }
-/* 
-.pages {
-  position: relative;
-  background-color: red;
-  width: 450px;
-}
-.pages::before {
-  content: "";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 140%;
-} */
 .pages {
   display: flex;
   justify-content: center;
@@ -56,13 +40,10 @@ input[type="number"]::-webkit-inner-spin-button {
   height: inherit;
 }
 .page {
-  /* max-width: 700px; */
-  /* max-height: 700px; */
-  width: 71%;
   height: 100%;
   background: #fff;
   background-size: cover;
-  /* object-fit: cover; */
+  transform: scale(0.95);
 }
 
 /* nav */
