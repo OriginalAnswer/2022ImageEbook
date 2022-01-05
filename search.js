@@ -31,7 +31,7 @@ pageForm.addEventListener("submit", savePage);
 if (savedPage === null) {
     firstPage();
 } else {
-    makePage();
+    makeDiv();
 }
 
 

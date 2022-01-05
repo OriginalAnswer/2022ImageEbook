@@ -20,13 +20,14 @@
         <div class="controls">
             <i class="icons fas fa-angle-double-left"></i>
             <i class="icons fas fa-angle-left"></i>
-            <label for="pageForm__input"><span>PAGE : </span></label> 
+            <span>
+                <label for="pageForm__input">PAGE : </label> 
+            </span>
             <form id="pageForm">
                 <input 
                     type="number" 
                     min="1"
                     max="400"
-                    placeholder="1" 
                     id="pageForm__input"/>
                 <input type="submit" class="hidden"/>
             </form>
@@ -38,22 +39,44 @@
     </div>
 
 
-<script type="text/javascript">
-    makePage();
-function makePage() {
-    var pageDiv = document.createElement("div");
-    // div 생성
-    // div 이미지
-    document.getElementById("pages").appendChild(pageDiv);
-    //body에 생성한 div추가
-    pageDiv.classList.add('page');
-    pageDiv.style.backgroundImage = "url('pages/10.jpg')";
-    //생성한 div에 클래스 .page 생성
-}
-</script>
+    <script type="text/javascript">
+        const PAGE_KEY = "page";
+        const savedPage = localStorage.getItem(PAGE_KEY);
+        const pageForm = document.querySelector("#pageForm");
+        const pageForm__input = document.querySelector("#pageForm__input");
+        const pageDiv = document.createElement("div");
 
-    <script src="search.js"></script>
-    <!-- icon -->
-    <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
+        
+        
+        function makeDiv() {
+            document.getElementById("pages").appendChild(pageDiv);
+            pageDiv.classList.add('page');
+            pageDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";            
+        }
+        
+        function firstPage() {
+            localStorage.setItem(PAGE_KEY, 1);
+        }
+        
+        function savePage() {
+            const pageNum = pageForm__input.value;
+            localStorage.clear()
+            localStorage.setItem(PAGE_KEY, pageNum);
+        }
+        pageForm.addEventListener("submit", savePage);
+        if (savedPage === null) {
+            firstPage();
+        } else {
+            makeDiv();
+        }
+        
+        pageForm__input.setAttribute('placeholder',savedPage);
+
+        
+        </script>
+
+<!-- <script src="search.js"></script> -->
+<!-- icon -->
+<script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
 </body>
 </html>

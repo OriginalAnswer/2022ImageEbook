@@ -36,10 +36,10 @@ input[type="number"]::-webkit-inner-spin-button {
 .pages {
   background-color: red;
   position: relative;
-  width: 470px;
+  width: 450px;
 }
 .pages::before {
-  padding-top: 670px;
+  padding-top: 650px;
   content: "";
   display: block;
 }
