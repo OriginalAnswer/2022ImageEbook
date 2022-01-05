@@ -16,12 +16,10 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 /*  */
-body {
-  height: 100%;
-  width: 100%;
-}
+
 /* SCREEN */
 .screen {
+  /* position: absolute; */
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -34,7 +32,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100vw;
+  width: 100%;
 }
 .pages {
   display: flex;
@@ -42,13 +40,15 @@ body {
   align-items: center;
   width: inherit;
   height: inherit;
+  transform: scale(0.95);
+  background-color: blueviolet;
 }
 .page {
-  /* height: 100%; */
+  height: 100%;
   background: #fff;
   background-size: cover;
-  transform: scale(0.95);
 }
+
 /* nav */
 .controls {
   height: 100%;

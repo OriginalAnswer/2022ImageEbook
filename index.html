@@ -59,68 +59,62 @@
         const page = document.querySelector('.page');
         const pages = document.querySelector('.pages');
         const viewport = document.querySelector('.viewport');
-        const pageH = document.querySelector('.pages').clientHeight;
+        const pagesH = document.querySelector('.pages').clientHeight;
+
+        // const pageH = document.querySelector('.pages').clientHeight;
         
         const Btn__first = document.querySelector('#Btn__first');
         const Btn__prev = document.querySelector('#Btn__prev');
         const Btn__next = document.querySelector('#Btn__next');
         const Btn__last = document.querySelector('#Btn__last');
-        // const pageH = document.querySelector('.page').clientHeight;
-
-        
-        pageForm__input.setAttribute('placeholder',savedPage);
+        pageForm__input.setAttribute('placeholder',savedPage);    
         pageForm.addEventListener("submit", savePage);
         
-        function loadPage() {
-            document.getElementById("pages").appendChild(newDiv);
-            newDiv.classList.add('page');
-            newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
 
-            document.querySelector('.page').style.height = '100%';
-            document.querySelector('.page').style.width = pageH*.7 +'px';
-        }
-        
-        function firstPage() {
-            localStorage.setItem(PAGE_KEY, 1);
-            location.reload();
-        }
-        
         function savePage() {
             const pageNum = pageForm__input.value;
             localStorage.clear()
             localStorage.setItem(PAGE_KEY, pageNum);
+        }  
+        function loadPage() {   
+            document.getElementById("pages").appendChild(newDiv);
+            newDiv.classList.add('page');
+            newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
+            const pageH = document.querySelector('.page').clientHeight;
+            document.querySelector('.page').style.height = '100%';
+            document.querySelector('.page').style.width = pageH*.7 +'px';
+            const pageW = document.querySelector('.page').clientWidth;
+            document.querySelector('.pages').style.width = '100%';
+            document.querySelector('.pages').style.height = pageW*1.41 +'px';
+            // const pageW = document.querySelector('.page').clientWidth;
         }
-
+        function firstPage() {
+            localStorage.setItem(PAGE_KEY, 1);
+            location.reload();
+        }
         if (savedPage === null) {
             firstPage();
         } else {
             loadPage();
         }
         
-        window.onresize = function(){
-            const pageH = document.querySelector('.page').clientHeight;
-            document.querySelector('.page').style.width = pageH*.7 +'px';
-            // if (pageW <= 600) {
-            // const pageW = document.querySelector('.page').clientWidth;
-            // document.querySelector('.pages').style.height = '';
-            // document.querySelector('.page').style.width = '90%';
-            // document.querySelector('.page').style.height = pageW*1.41 +'px';
-            // } 
-            // else if(pageH <= 800) {
-            // const pageW = document.querySelector('.page').clientWidth;
-            // document.querySelector('.pages').style.height = '';
-            // document.querySelector('.page').style.width = '90%';
-            // document.querySelector('.page').style.height = pageW*1.41 +'px';
-            // } 
-        }
-        const pageW = document.querySelector('.page').clientWidth;
-        if (pageW <= 600) {
-                const pageW = document.querySelector('.page').clientWidth;
-                document.querySelector('.pages').style.height = '';
-                document.querySelector('.pages').style.width = '100%';
-                document.querySelector('.page').style.height = pageW*1.41 +'px';
-                } 
 
+
+        window.onresize = function(){
+            // const pageH = document.querySelector('.page').clientHeight;
+            // document.querySelector('.pages').style.height = '100%';
+            // document.querySelector('.page').style.width = pageH*.7 +'px';
+            const pageW = document.querySelector('.page').clientWidth;
+            // document.querySelector('.pages').style.width = '100%';
+            document.querySelector('.page').style.height = pageW*1.41 +'px';
+        }
+        // if (pageW <= 600) {
+        //         const pageW = document.querySelector('.page').clientWidth;
+        //         document.querySelector('.pages').style.height = '';
+        //         document.querySelector('.pages').style.width = '100%';
+        //         document.querySelector('.page').style.height = pageW*1.41 +'px';
+        //         } 
+                
     </script>
 
 <!-- <script src="search.js"></script> -->
