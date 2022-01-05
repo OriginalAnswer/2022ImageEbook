@@ -73,6 +73,7 @@
             document.getElementById("pages").appendChild(newDiv);
             newDiv.classList.add('page');
             newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
+            document.querySelector('.page').style.height = '100%';
             document.querySelector('.page').style.width = pageH*.7 +'px';
         }
         
@@ -86,24 +87,18 @@
             localStorage.clear()
             localStorage.setItem(PAGE_KEY, pageNum);
         }
-        // function clickBtnFirst(){
-        //     return firstPage();
-        // }
 
         if (savedPage === null) {
             firstPage();
         } else {
             loadPage();
         }
-        window.onresize = function(){
-            const pageH = document.querySelector('.pages').clientHeight;
-            document.querySelector('.page').style.width = pageH*.7 +'px';
-            console.log(pageH);
-        }
         
-
-        
-
+            window.onresize = function(){
+                // document.querySelector('.page').style.height = '100%';
+                    const pageH = document.querySelector('.page').clientHeight;
+                    document.querySelector('.page').style.width = pageH*.7 +'px';    
+                }
     </script>
 
 <!-- <script src="search.js"></script> -->

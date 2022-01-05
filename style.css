@@ -40,12 +40,11 @@ input[type="number"]::-webkit-inner-spin-button {
   height: inherit;
 }
 .page {
-  height: 100%;
+  /* height: 100%; */
   background: #fff;
   background-size: cover;
   transform: scale(0.95);
 }
-
 /* nav */
 .controls {
   height: 100%;
