@@ -9,6 +9,10 @@
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 </head>
 <body>
+    <button onclick="clickBtnFirst()" class="hidden Btn Btn__first" id="Btn__first"></button>
+    <input type="button" onclick="clickBtn" class="hidden Btn Btn__prev" id="Btn__prev"/>
+    <input type="button" onclick="clickBtn" class="hidden Btn Btn__next" id="Btn__next"/>
+    <input type="button" onclick="clickBtn" class="hidden Btn Btn__last" id="Btn__last"/>
     <div class="screen">
         <div class="viewport">
             <div class="pages" id="pages">
@@ -18,8 +22,10 @@
         </div>
         
         <div class="controls">
-            <i class="icons fas fa-angle-double-left"></i>
-            <i class="icons fas fa-angle-left"></i>
+            <label for="Btn__first">
+                <i class="icon icon__first fas fa-angle-double-left"></i>
+            </label>
+            <i class="icon icon__prev fas fa-angle-left"><label for="Btn__prev">0</label></i>
             <span>
                 <label for="pageForm__input">PAGE : </label> 
             </span>
@@ -31,13 +37,13 @@
                     id="pageForm__input"/>
                 <input type="submit" class="hidden"/>
             </form>
-            <span> | </span>
+            <span> of </span>
             <span id="number-pages">400</span>
-            <i class="icons fas fa-angle-right"></i>
-            <i class="icons fas fa-angle-double-right"></i>
+            <i class="icon icon__next fas fa-angle-right"><label for="Btn__next"></label></i>
+            <i class="icon icon__last fas fa-angle-double-right"><label for="Btn__last"></label></i>
         </div>
     </div>
-
+    
 
     <script type="text/javascript">
         const PAGE_KEY = "page";
@@ -50,6 +56,10 @@
         const viewport = document.querySelector('.viewport');
         const pageH = document.querySelector('.pages').clientHeight;
         
+        const Btn__first = document.querySelector('#Btn__first');
+        const Btn__prev = document.querySelector('#Btn__prev');
+        const Btn__next = document.querySelector('#Btn__next');
+        const Btn__last = document.querySelector('#Btn__last');
         
         pageForm__input.setAttribute('placeholder',savedPage);
         pageForm.addEventListener("submit", savePage);
@@ -58,12 +68,12 @@
             document.getElementById("pages").appendChild(newDiv);
             newDiv.classList.add('page');
             newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
-            
             document.querySelector('.page').style.width = pageH*.7 +'px';
         }
         
         function firstPage() {
             localStorage.setItem(PAGE_KEY, 1);
+            location.reload();
         }
         
         function savePage() {
@@ -71,7 +81,10 @@
             localStorage.clear()
             localStorage.setItem(PAGE_KEY, pageNum);
         }
-        
+        // function clickBtnFirst(){
+        //     return firstPage();
+        // }
+
         if (savedPage === null) {
             firstPage();
         } else {
@@ -82,12 +95,14 @@
             document.querySelector('.page').style.width = pageH*.7 +'px';
             console.log(pageH);
         }
-        // 리사이즈
+        
+
+        
 
     </script>
 
 <!-- <script src="search.js"></script> -->
-<!-- icon -->
+<!-- icon icon__ -->
 <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
 </body>
 </html>

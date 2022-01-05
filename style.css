@@ -6,6 +6,9 @@
   border-color: none;
   outline: none;
 }
+label {
+  /* font-size: 0px; */
+}
 
 .hidden {
   display: none;
@@ -76,7 +79,7 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: center;
 }
 #pageForm__input {
-  margin-top: 4px;
+  margin-top: 1px;
   border-radius: 9px;
   width: 2.5rem;
   height: 55%;
@@ -92,6 +95,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .controls span:nth-child(6) {
   padding-left: 0;
 }
-.controls .icons {
+.controls .icon {
   padding: 0 1rem;
 }
