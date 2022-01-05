@@ -75,6 +75,10 @@
             newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
             document.querySelector('.page').style.height = '100%';
             document.querySelector('.page').style.width = pageH*.7 +'px';
+            const pageW = document.querySelector('.page').clientWidth;
+            if (pageW <= 400) {
+                document.querySelector('.pages').style.height = '50%';
+            };
         }
         
         function firstPage() {
@@ -95,11 +99,10 @@
         }
         
             window.onresize = function(){
-                // document.querySelector('.page').style.height = '100%';
-                    const pageH = document.querySelector('.page').clientHeight;
-                    document.querySelector('.page').style.width = pageH*.7 +'px';    
-                }
-    </script>
+                const pageH = document.querySelector('.page').clientHeight;
+                document.querySelector('.page').style.width = pageH*.7 +'px';
+            }
+                </script>
 
 <!-- <script src="search.js"></script> -->
 <!-- icon icon__ -->
