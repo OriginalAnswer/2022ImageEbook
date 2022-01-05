@@ -44,14 +44,19 @@
         const savedPage = localStorage.getItem(PAGE_KEY);
         const pageForm = document.querySelector("#pageForm");
         const pageForm__input = document.querySelector("#pageForm__input");
-        const pageDiv = document.createElement("div");
-
+        const newDiv = document.createElement("div");
+        const page = document.querySelector('.page');
+        const pages = document.querySelector('.pages');
+        const viewport = document.querySelector('.viewport');
         
         
-        function makeDiv() {
-            document.getElementById("pages").appendChild(pageDiv);
-            pageDiv.classList.add('page');
-            pageDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";            
+        pageForm__input.setAttribute('placeholder',savedPage);
+        pageForm.addEventListener("submit", savePage);
+        
+        function loadPage() {
+            document.getElementById("pages").appendChild(newDiv);
+            newDiv.classList.add('page');
+            newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
         }
         
         function firstPage() {
@@ -63,17 +68,20 @@
             localStorage.clear()
             localStorage.setItem(PAGE_KEY, pageNum);
         }
-        pageForm.addEventListener("submit", savePage);
+        
         if (savedPage === null) {
             firstPage();
         } else {
-            makeDiv();
+            loadPage();
         }
-        
-        pageForm__input.setAttribute('placeholder',savedPage);
+        window.onresize = function(){
+            const pageH = document.querySelector('.pages').clientHeight;
+            document.querySelector('.page').style.width = pageH*.7 +'px';
+            console.log(pageH);
+        }
+        // 리사이즈
 
-        
-        </script>
+    </script>
 
 <!-- <script src="search.js"></script> -->
 <!-- icon -->
