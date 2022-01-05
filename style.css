@@ -36,14 +36,13 @@ input[type="number"]::-webkit-inner-spin-button {
 .pages {
   background-color: red;
   position: relative;
-  width: 460px;
+  width: 450px;
 }
 .pages::before {
-  padding-top: 650px;
+  padding-top: 140%;
   content: "";
   display: block;
 }
-
 .page {
   position: absolute;
   top: 0;
@@ -51,7 +50,6 @@ input[type="number"]::-webkit-inner-spin-button {
   bottom: 0;
   left: 0;
   background: blue;
-  /* background-image: url(pages/10.jpg); */
   background-size: cover;
 }
 
@@ -87,7 +85,4 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .controls .icons {
   padding: 0 1rem;
-}
-
-@media (max-height: 1024px) {
 }
