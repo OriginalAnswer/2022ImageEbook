@@ -65,6 +65,8 @@
         const Btn__prev = document.querySelector('#Btn__prev');
         const Btn__next = document.querySelector('#Btn__next');
         const Btn__last = document.querySelector('#Btn__last');
+        // const pageH = document.querySelector('.page').clientHeight;
+
         
         pageForm__input.setAttribute('placeholder',savedPage);
         pageForm.addEventListener("submit", savePage);
@@ -73,12 +75,9 @@
             document.getElementById("pages").appendChild(newDiv);
             newDiv.classList.add('page');
             newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
+
             document.querySelector('.page').style.height = '100%';
             document.querySelector('.page').style.width = pageH*.7 +'px';
-            const pageW = document.querySelector('.page').clientWidth;
-            if (pageW <= 400) {
-                document.querySelector('.pages').style.height = '50%';
-            };
         }
         
         function firstPage() {
@@ -101,6 +100,18 @@
             window.onresize = function(){
                 const pageH = document.querySelector('.page').clientHeight;
                 document.querySelector('.page').style.width = pageH*.7 +'px';
+                // if (pageW <= 600) {
+                // const pageW = document.querySelector('.page').clientWidth;
+                // document.querySelector('.pages').style.height = '';
+                // document.querySelector('.page').style.width = '90%';
+                // document.querySelector('.page').style.height = pageW*1.41 +'px';
+                // } 
+                // else if(pageH <= 800) {
+                // const pageW = document.querySelector('.page').clientWidth;
+                // document.querySelector('.pages').style.height = '';
+                // document.querySelector('.page').style.width = '90%';
+                // document.querySelector('.page').style.height = pageW*1.41 +'px';
+                // } 
             }
                 </script>
 
