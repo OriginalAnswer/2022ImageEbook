@@ -48,6 +48,7 @@
         const page = document.querySelector('.page');
         const pages = document.querySelector('.pages');
         const viewport = document.querySelector('.viewport');
+        const pageH = document.querySelector('.pages').clientHeight;
         
         
         pageForm__input.setAttribute('placeholder',savedPage);
@@ -57,6 +58,8 @@
             document.getElementById("pages").appendChild(newDiv);
             newDiv.classList.add('page');
             newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
+            
+            document.querySelector('.page').style.width = pageH*.7 +'px';
         }
         
         function firstPage() {
