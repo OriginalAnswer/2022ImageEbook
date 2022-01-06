@@ -81,8 +81,10 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: red;
 }
 .bigBtn i {
-  height: 100%;
+  color: rgba(221, 221, 221, 0.945);
+  height: 30%;
   display: flex;
+  border-radius: 40px;
   padding: 0 10px;
   align-items: center;
   background-color: green;
