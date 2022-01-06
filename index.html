@@ -9,24 +9,37 @@
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 </head>
 <body>
-    <form class="btnForm__first hidden">
-        <input type="submit" value="1" id="btn__first">
-    </form>
-    <form class="btnForm__last hidden">
-        <input type="submit" value="400" id="btn__last">
-    </form>
-    <form class="btnForm__prev hidden">
-        <input type="submit" value="0" id="btn__prev">
-    </form>
-    <form class="btnForm__next hidden">
-        <input type="submit" value="1" id="btn__next">
-    </form>
+    <div class="btnForms hidden">
+        <form class="btnForm__first hidden">
+            <input type="submit" value="1" id="btn__first">
+        </form>
+        <form class="btnForm__last hidden">
+            <input type="submit" value="400" id="btn__last">
+        </form>
+        <form class="btnForm__prev hidden">
+            <input type="submit" value="0" id="btn__prev">
+        </form>
+        <form class="btnForm__next hidden">
+            <input type="submit" value="1" id="btn__next">
+        </form>
+    </div>
 
 
     <div class="screen">
-        <div class="viewport">
+        <div class="viewport" id="viewport">
             <div class="pages" id="pages">
-
+                </div>
+                <div class="bigBtns">
+                <div class="bigBtn bigBtn__prev">
+                    <label for="btn__prev">
+                        <i class="btn btn__prev"></i>
+                    </label>
+                </div>
+                <div>
+                    <label for="bigBtn nextBtn__next">
+                        <i class="btn btn__next"></i>
+                    </label>
+                </div>
             </div>
         </div>
         
@@ -75,6 +88,10 @@
         btnForm__prev.addEventListener("submit", prevPage);
         const btnForm__next = document.querySelector(".btnForm__next");
         btnForm__next.addEventListener("submit", nextPage);
+        //
+        // const vx = document.getElementById('viewport').clientWidth;
+        // const vh = document.getElementsByTagName('viewport').clientHeight;
+        // document.getElementById('pages').style.maxHeight = vh-50 +'px';
 
         
         function savePage() {
@@ -85,26 +102,27 @@
         function loadPage() {   
             //h = w*1.41
             //w = h*.7
-            
             const pg = document.createElement("div");
             document.getElementById('pages').appendChild(pg);
             pg.setAttribute("class","page");
             pg.setAttribute("id","page");
             pg.setAttribute("style",(
                 "background-image: url(pages/"+savedPage+".jpg);"));
-            
+
             const x = document.getElementById('pages').clientWidth;
             const y = document.getElementById('pages').clientHeight;
-            const pgW = document.getElementById('page').clientWidth;
-            const pgH = document.getElementById('page').clientHeight;
-            if(x>=y){
+            const pgX = document.getElementById('page').clientWidth;
+            const pgY = document.getElementById('page').clientHeight;
+            if(pgY<y){
                 document.getElementById('page').style.height = '100%';
                 document.getElementById('page').style.width = y*.7 +'px';
-            }
-            else {
+            }else if(x<y){
                 document.getElementById('page').style.width = '100%';
                 document.getElementById('page').style.height = x*1.4 +'px';
-            }
+            }else{
+                document.getElementById('page').style.height = '100%';
+                document.getElementById('page').style.width = y*.7 +'px';
+            } 
             
 
             console.log(savedPage);
@@ -147,22 +165,19 @@
             const y = document.getElementById('pages').clientHeight;
             const pgW = document.getElementById('page').clientWidth;
             const pgH = document.getElementById('page').clientHeight;
+            // if(pgY>y){
+            //     document.getElementById('page').style.height = '100%';
+            //     document.getElementById('page').style.width = y*.7 +'px';
+            // }else 
             if(x<y){
                 document.getElementById('page').style.width = '100%';
                 document.getElementById('page').style.height = x*1.4 +'px';
-                // document.getElementById('page').setAttribute('style',(
-                //     "width = 100%;"+
-                //     "height = "+x*1.4+"px;"
-                // ));
-            }else {
+            }else if(x>=y){
                 document.getElementById('page').style.height = '100%';
                 document.getElementById('page').style.width = y*.7 +'px';
-                // document.getElementById('page').style.maxHeight = '100%';
-                // document.getElementById('page').setAttribute('style',(
-                //     "height = 100%;"+
-                //     "width = "+y*.7+"px;"
-                    // "max-width = "+y 
-                // ));
+            }else{
+                document.getElementById('page').style.width = '100%';
+                document.getElementById('page').style.height = x*1.4 +'px';
             }
         }
                 

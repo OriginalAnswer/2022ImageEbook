@@ -33,6 +33,7 @@ input[type="number"]::-webkit-inner-spin-button {
   align-items: center;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 .pages {
   display: flex;
@@ -48,9 +49,25 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%; */
   background-color: #fff;
   background-size: cover;
+  /* max-height: 800px; */
 }
 
 /* nav */
+.bigBtns {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.bigBtn {
+  width: 40%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.5;
+}
+
 .controls {
   height: 100%;
   width: 100vw;
