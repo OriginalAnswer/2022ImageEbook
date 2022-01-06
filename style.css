@@ -59,7 +59,7 @@ input[type="number"]::-webkit-inner-spin-button {
   position: absolute;
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
+  /* background-color: #fff; */
   opacity: 0.5;
 }
 .bigBtn {
@@ -73,12 +73,12 @@ input[type="number"]::-webkit-inner-spin-button {
 .bigBtn__prev {
   display: flex;
   justify-content: flex-start;
-  background-color: blue;
+  /* background-color: blue; */
 }
 .bigBtn__next {
   display: flex;
   justify-content: flex-end;
-  background-color: red;
+  /* background-color: red; */
 }
 .bigBtn i {
   color: rgba(221, 221, 221, 0.945);
