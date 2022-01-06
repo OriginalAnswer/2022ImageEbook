@@ -85,10 +85,13 @@
         function loadPage() {   
             //h = w*1.41
             //w = h*.7
+            
             const pg = document.createElement("div");
             document.getElementById('pages').appendChild(pg);
             pg.setAttribute("class","page");
             pg.setAttribute("id","page");
+            pg.setAttribute("style",(
+                "background-image: url(pages/"+savedPage+".jpg);"));
             
             const x = document.getElementById('pages').clientWidth;
             const y = document.getElementById('pages').clientHeight;
