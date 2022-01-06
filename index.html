@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
@@ -94,12 +94,13 @@
             const y = document.getElementById('pages').clientHeight;
             const pgW = document.getElementById('page').clientWidth;
             const pgH = document.getElementById('page').clientHeight;
-            if(x<y){
+            if(x>=y){
                 document.getElementById('page').style.height = '100%';
                 document.getElementById('page').style.width = y*.7 +'px';
-            } else {
-                document.getElementById('page').style.height = '100%';
-                document.getElementById('page').style.width = y*.7 +'px';
+            }
+            else {
+                document.getElementById('page').style.width = '100%';
+                document.getElementById('page').style.height = x*1.4 +'px';
             }
             
 
@@ -138,13 +139,28 @@
         }
         
         window.onresize = function(){
+            const mxH = document.getElementsByTagName('html').clientHeight;
             const x = document.getElementById('pages').clientWidth;
             const y = document.getElementById('pages').clientHeight;
             const pgW = document.getElementById('page').clientWidth;
             const pgH = document.getElementById('page').clientHeight;
-
-            document.getElementById('page').style.height = '100%';
-            document.getElementById('page').style.width = y*.7 +'px';
+            if(x<y){
+                document.getElementById('page').style.width = '100%';
+                document.getElementById('page').style.height = x*1.4 +'px';
+                // document.getElementById('page').setAttribute('style',(
+                //     "width = 100%;"+
+                //     "height = "+x*1.4+"px;"
+                // ));
+            }else {
+                document.getElementById('page').style.height = '100%';
+                document.getElementById('page').style.width = y*.7 +'px';
+                // document.getElementById('page').style.maxHeight = '100%';
+                // document.getElementById('page').setAttribute('style',(
+                //     "height = 100%;"+
+                //     "width = "+y*.7+"px;"
+                    // "max-width = "+y 
+                // ));
+            }
         }
                 
     </script>
