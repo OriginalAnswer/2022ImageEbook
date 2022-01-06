@@ -89,18 +89,18 @@
             document.getElementById('pages').appendChild(pg);
             pg.setAttribute("class","page");
             pg.setAttribute("id","page");
-            // pg.setAttribute("style",(
-                //     "width:100vw;"+
-                //     "height:100%;"
-                // ));
             
-            const pgsW = document.getElementById('pages').clientWidth;
-            const pgsH = document.getElementById('pages').clientHeight;
+            const x = document.getElementById('pages').clientWidth;
+            const y = document.getElementById('pages').clientHeight;
             const pgW = document.getElementById('page').clientWidth;
             const pgH = document.getElementById('page').clientHeight;
-            document.getElementById('page').style.width = pgsH*.7 +'px';
-            document.getElementById('page').style.height = pgsW*.41 +'px';
-            
+            if(x<y){
+                document.getElementById('page').style.height = '100%';
+                document.getElementById('page').style.width = y*.7 +'px';
+            } else {
+                document.getElementById('page').style.height = '100%';
+                document.getElementById('page').style.width = y*.7 +'px';
+            }
             
 
             console.log(savedPage);
@@ -137,10 +137,15 @@
             loadPage();
         }
         
-        // window.onresize = function(){
-        //     const pgW = document.querySelector('.page').clientWidth;
-        //     document.querySelector('.page').style.height = pageW*1.41 +'px';
-        // }
+        window.onresize = function(){
+            const x = document.getElementById('pages').clientWidth;
+            const y = document.getElementById('pages').clientHeight;
+            const pgW = document.getElementById('page').clientWidth;
+            const pgH = document.getElementById('page').clientHeight;
+
+            document.getElementById('page').style.height = '100%';
+            document.getElementById('page').style.width = y*.7 +'px';
+        }
                 
     </script>
 
