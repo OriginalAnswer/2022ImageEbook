@@ -19,12 +19,12 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* SCREEN */
 .screen {
-  /* position: absolute; */
+  position: fixed;
   width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-rows: auto 50px;
-  background-color: #323232;
+  background-color: #525252;
 }
 
 .viewport {
@@ -44,8 +44,9 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: blueviolet;
 }
 .page {
-  height: 100%;
-  background: #fff;
+  /* height: 100%;
+  width: 100%; */
+  background-color: #fff;
   background-size: cover;
 }
 
@@ -79,6 +80,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .controls span:nth-child(6) {
   padding-left: 0;
 }
-.controls .icon {
+.controls .btn {
   padding: 0 1rem;
 }

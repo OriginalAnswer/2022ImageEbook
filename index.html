@@ -9,24 +9,33 @@
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 </head>
 <body>
-    <button onclick="clickBtnFirst()" class="hidden Btn Btn__first" id="Btn__first"></button>
-    <input type="button" onclick="clickBtn" class="hidden Btn Btn__prev" id="Btn__prev"/>
-    <input type="button" onclick="clickBtn" class="hidden Btn Btn__next" id="Btn__next"/>
-    <input type="button" onclick="clickBtn" class="hidden Btn Btn__last" id="Btn__last"/>
+    <form class="btnForm__first hidden">
+        <input type="submit" value="1" id="btn__first">
+    </form>
+    <form class="btnForm__last hidden">
+        <input type="submit" value="400" id="btn__last">
+    </form>
+    <form class="btnForm__prev hidden">
+        <input type="submit" value="0" id="btn__prev">
+    </form>
+    <form class="btnForm__next hidden">
+        <input type="submit" value="1" id="btn__next">
+    </form>
+
+
     <div class="screen">
         <div class="viewport">
             <div class="pages" id="pages">
-                <!-- <div class="page">
-                </div> -->
+
             </div>
         </div>
         
-        <div class="controls">
-            <label for="Btn__first">
-                <i class="icon icon__first fas fa-angle-double-left"></i>
+        <nav class="controls">
+            <label for="btn__first">
+                <i class="btn btn__first fas fa-angle-double-left"></i>
             </label>
-            <label for="Btn__prev">
-                <i class="icon icon__prev fas fa-angle-left"></i>
+            <label for="btn__prev">
+                <i class="btn btn__prev fas fa-angle-left"></i>
             </label>
             <span>
                 <label for="pageForm__input">PAGE : </label> 
@@ -40,13 +49,13 @@
                 <input type="submit" class="hidden"/>
             </form>
             <span> of </span><span id="number-pages">400</span>
-            <label for="Btn__next">
-                <i class="icon icon__next fas fa-angle-right"></i>
+            <label for="btn__next">
+                <i class="btn btn__next fas fa-angle-right"></i>
             </label>
-            <label for="Btn__last">
-                <i class="icon icon__last fas fa-angle-double-right"></i>
+            <label for="btn__last">
+                <i class="btn btn__last fas fa-angle-double-right"></i>
             </label>
-        </div>
+        </nav>
     </div>
     
 
@@ -55,75 +64,76 @@
         const savedPage = localStorage.getItem(PAGE_KEY);
         const pageForm = document.querySelector("#pageForm");
         const pageForm__input = document.querySelector("#pageForm__input");
-        const page = document.querySelector('.page');
-        const pages = document.querySelector('.pages');
-        const viewport = document.querySelector('.viewport');
-        const pagesH = document.querySelector('.pages').clientHeight;
-
-        // const pageH = document.querySelector('.pages').clientHeight;
-        
-        const Btn__first = document.querySelector('#Btn__first');
-        const Btn__prev = document.querySelector('#Btn__prev');
-        const Btn__next = document.querySelector('#Btn__next');
-        const Btn__last = document.querySelector('#Btn__last');
-
         pageForm__input.setAttribute('placeholder',savedPage);    
         pageForm.addEventListener("submit", savePage);
-        
+        // PAGE Navigation
+        const btnForm__first = document.querySelector(".btnForm__first");
+        btnForm__first.addEventListener("submit", firstPage);
+        const btnForm__last = document.querySelector(".btnForm__last");
+        btnForm__last.addEventListener("submit", lastPage);
+        const btnForm__prev = document.querySelector(".btnForm__prev");
+        btnForm__prev.addEventListener("submit", prevPage);
+        const btnForm__next = document.querySelector(".btnForm__next");
+        btnForm__next.addEventListener("submit", nextPage);
 
+        
         function savePage() {
             const pageNum = pageForm__input.value;
-            localStorage.clear()
+            localStorage.clear();
             localStorage.setItem(PAGE_KEY, pageNum);
         }  
         function loadPage() {   
-            // const newDiv = document.createElement("div");
+            //h = w*1.41
+            //w = h*.7
 
-            document.getElementById("pages").appendChild(newDiv);
-            newDiv.classList.add('page');
+            const pg = document.createElement("div");
+            pg.setAttribute("class","page");
+            pg.setAttribute("style",("page"));
+            document.querySelector(".pages").appendChild(pg);
+            
+            
 
-            newDiv.style.backgroundImage = "url(" + "pages/" + savedPage +".jpg" +")";
-
-            const pageH = document.querySelector('.page').clientHeight;
-
-            document.querySelector('.page').style.height = '100%';
-            document.querySelector('.page').style.width = pageH*.7 +'px';
-            const pageW = document.querySelector('.page').clientWidth;
-            document.querySelector('.pages').style.width = '100%';
-            document.querySelector('.pages').style.height = pageW*1.41 +'px';
-            // const pageW = document.querySelector('.page').clientWidth;
+            console.log(savedPage);
         }
         function firstPage() {
             localStorage.setItem(PAGE_KEY, 1);
             location.reload();
         }
+        function lastPage() {
+            localStorage.setItem(PAGE_KEY, 400);
+        }
+        function prevPage(){
+            var thisPage = parseInt(savedPage);
+            var prevPage =  thisPage - 1;
+            if(prevPage < 1){
+                firstPage();
+            }else{
+                localStorage.setItem(PAGE_KEY, prevPage);
+            }
+        };
+        function nextPage(){
+            var thisPage = parseInt(savedPage);
+            var nextPage =  thisPage + 1;
+            localStorage.setItem(PAGE_KEY, nextPage);
+            if(nextPage > 400){
+                lastPage();
+            }else{
+                localStorage.setItem(PAGE_KEY, nextPage);
+            }
+        };
         if (savedPage === null) {
             firstPage();
-        } else {
+        } else if(0<savedPage<401){
             loadPage();
         }
         
-
-
         window.onresize = function(){
-            // const pageH = document.querySelector('.page').clientHeight;
-            // document.querySelector('.pages').style.height = '100%';
-            // document.querySelector('.page').style.width = pageH*.7 +'px';
             const pageW = document.querySelector('.page').clientWidth;
-            // document.querySelector('.pages').style.width = '100%';
             document.querySelector('.page').style.height = pageW*1.41 +'px';
         }
-        // if (pageW <= 600) {
-        //         const pageW = document.querySelector('.page').clientWidth;
-        //         document.querySelector('.pages').style.height = '';
-        //         document.querySelector('.pages').style.width = '100%';
-        //         document.querySelector('.page').style.height = pageW*1.41 +'px';
-        //         } 
                 
     </script>
 
-<!-- <script src="search.js"></script> -->
-<!-- icon icon__ -->
 <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
 </body>
 </html>
