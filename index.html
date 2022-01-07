@@ -109,7 +109,7 @@
             const y = document.getElementById('pages').clientHeight;
             const pgX = document.getElementById('page').clientWidth;
             const pgY = document.getElementById('page').clientHeight;
-            if(pgY>y){
+            if(pgY<y){
                 document.getElementById('page').style.height = '100%';
                 document.getElementById('page').style.width = y*.7 +'px';
             }else if(x<y){
@@ -119,6 +119,8 @@
                 document.getElementById('page').style.height = '100%';
                 document.getElementById('page').style.width = y*.7 +'px';
             } 
+
+            
             
 
             console.log(savedPage);
@@ -161,13 +163,11 @@
             const y = document.getElementById('pages').clientHeight;
             const pgX = document.getElementById('page').clientWidth;
             const pgY = document.getElementById('page').clientHeight;
-            // if(pgY>y){
-            //     document.getElementById('page').style.height = '100%';
-            //     document.getElementById('page').style.width = y*.7 +'px';
-            // }else 
+
             if(x<y){
                 document.getElementById('page').style.width = '100%';
                 document.getElementById('page').style.height = x*1.4 +'px';
+                location.reload();
             }else if(x>=y){
                 document.getElementById('page').style.height = '100%';
                 document.getElementById('page').style.width = y*.7 +'px';
@@ -175,12 +175,20 @@
                 document.getElementById('page').style.width = '100%';
                 document.getElementById('page').style.height = x*1.4 +'px';
             }
-            // if(x<y && pgY<y){
+
+            // if(pgY>y){
+            //     location.reload();
+            // }else if(x<y){
+            //     document.getElementById('page').style.width = '100%';
+            //     document.getElementById('page').style.height = x*1.4 +'px';
+            // }else if(x>y){
             //     document.getElementById('page').style.height = '100%';
             //     document.getElementById('page').style.width = y*.7 +'px';
+            // } else{
+            //     document.getElementById('page').style.width = '100%';
+            //     document.getElementById('page').style.height = x*1.4 +'px';
             // }
         }
-                
     </script>
 
 <script src="https://kit.fontawesome.com/e4704dcbbd.js" crossorigin="anonymous"></script>
