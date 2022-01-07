@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <title>Self-Made-eBook</title>
 </head>
 <body>
     <div class="btnForms hidden">
@@ -23,7 +22,6 @@
             <input type="submit" value="1" id="btn__next">
         </form>
     </div>
-
 
     <div class="screen">
         <div class="viewport" id="viewport">
@@ -73,6 +71,7 @@
         const savedPage = localStorage.getItem(PAGE_KEY);
         const pageForm = document.querySelector("#pageForm");
         const pageForm__input = document.querySelector("#pageForm__input");
+
         pageForm__input.setAttribute('placeholder',savedPage);    
         pageForm.addEventListener("submit", savePage);
         // PAGE Navigation
@@ -84,11 +83,6 @@
         btnForm__prev.addEventListener("submit", prevPage);
         const btnForm__next = document.querySelector(".btnForm__next");
         btnForm__next.addEventListener("submit", nextPage);
-        //
-        // const vx = document.getElementById('viewport').clientWidth;
-        // const vh = document.getElementsByTagName('viewport').clientHeight;
-        // document.getElementById('pages').style.maxHeight = vh-50 +'px';
-
         
         function savePage() {
             const pageNum = pageForm__input.value;
@@ -151,6 +145,7 @@
                 localStorage.setItem(PAGE_KEY, nextPage);
             }
         };
+
         if (savedPage === null) {
             firstPage();
         } else if(0<savedPage<401){
