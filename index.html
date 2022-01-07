@@ -109,7 +109,7 @@
             const y = document.getElementById('pages').clientHeight;
             const pgX = document.getElementById('page').clientWidth;
             const pgY = document.getElementById('page').clientHeight;
-            if(pgY<y){
+            if(pgY>y){
                 document.getElementById('page').style.height = '100%';
                 document.getElementById('page').style.width = y*.7 +'px';
             }else if(x<y){
